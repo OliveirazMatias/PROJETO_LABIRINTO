@@ -1,0 +1,23 @@
+{
+  "name": "projeto---mercado",
+  "version": "1.0.0",
+  "description": "Labirinto onde devemos mostrar o caminho mais rápido.",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx ts-node main.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OliveirazMatias/Projeto---Mercado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OliveirazMatias/Projeto---Mercado/issues"
+  },
+  "homepage": "https://github.com/OliveirazMatias/Projeto---Mercado#readme",
+  "dependencies": {
+    "ts-node": "^10.9.1"
+  }
+}
