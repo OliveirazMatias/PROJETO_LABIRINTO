@@ -19,6 +19,7 @@
   "homepage": "https://github.com/OliveirazMatias/Projeto---Mercado#readme",
   "dependencies": {
     "cli-color": "^2.0.3",
+    "prompt-sync": "^4.2.0",
     "ts-node": "^10.9.1"
   }
 }

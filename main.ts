@@ -1,4 +1,5 @@
 const color = require("cli-color");
+const input = require("prompt-sync")();
 
 const planta: number[][] = [
     [22, 22, 22, 22, 22, 33, 11, 22, 22, 22, 22, 22, 22, 11, 11, 22, 22, 22, 22, 22],
@@ -23,16 +24,16 @@ const planta: number[][] = [
 
 const colorir = (text: number): string => {
     if (text == 22) {
-        return color.red.bgRed(text)
+        return color.red.bgRed("  ")
     }
     else if (text == 11) {
-        return color.blue.bgBlue(text)
+        return color.blue.bgBlue("  ")
     }
     else if (text == 33) {
-        return color.green.bgGreen(text)
+        return color.green.bgGreen("  ")
     }
     else {
-        return color.yellow.bgYellow(text)
+        return color.yellow.bgYellow("  ")
     }
 }
 
@@ -50,4 +51,9 @@ const mostrarPlanta = (): void => {
     }
 }
 
-mostrarPlanta()
+while (true){
+ mostrarPlanta();
+ let escolha = input("Digite uma direção (w, a, s, d): ");
+ if (escolha.toUpperCase() == 'Q')
+    break
+}
