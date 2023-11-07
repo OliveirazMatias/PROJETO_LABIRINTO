@@ -51,9 +51,44 @@ const mostrarPlanta = (): void => {
     }
 }
 
+const descer = (): void => {
+    planta[x][y] = 11;
+    x = x + 1
+    planta[x][y] = 33;
+}
+
+
+const subir = (): void => {
+    planta[x][y] = 11;
+    x = x - 1
+    planta[x][y] = 33;
+}
+
+
+const esquerda = (): void => {
+    planta[x][y] = 11;
+    y = y - 1
+    planta[x][y] = 33;
+}
+
+const direita = (): void => {
+    planta[x][y] = 11;
+    y = y + 1
+    planta[x][y] = 33;
+}
+
 while (true){
  mostrarPlanta();
- let escolha = input("Digite uma direção (w, a, s, d): ");
- if (escolha.toUpperCase() == 'Q')
+ let escolha = input("Digite uma direção (w, a, s, d) ou (q) para sair: ");
+ if (escolha.toUpperCase() == 'Q'){
     break
+ } else if (escolha.toUpperCase() == "W"){
+    subir()
+ } else if (escolha.toUpperCase() == "A"){
+    esquerda()
+ } else if (escolha.toUpperCase() == "D"){
+    direita()
+ } else if (escolha.toUpperCase() == "S"){
+    descer()
+ } 
 }
