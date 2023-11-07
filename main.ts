@@ -54,33 +54,41 @@ const mostrarPlanta = (): void => {
 }
 
 const descer = (): void => {
-    planta[x][y] = 11;
-    x = x + 1
-    planta[x][y] = 33;
-    passos++;
+    if (x+1 < planta.length && planta[x + 1][y] !== 22){
+        planta[x][y] = 11;
+        x = x + 1
+        planta[x][y] = 33;
+        passos++;
+    }
 }
 
 
 const subir = (): void => {
-    planta[x][y] = 11;
-    x = x - 1
-    planta[x][y] = 33;
-    passos++;
+    if (x-1 >= 0 && planta[x - 1][y] !== 22){
+        planta[x][y] = 11;
+        x = x - 1
+        planta[x][y] = 33;
+        passos++;
+    }
 }
 
 
 const esquerda = (): void => {
-    planta[x][y] = 11;
-    y = y - 1
-    planta[x][y] = 33;
-    passos++;
+    if (y-1 >= 0 && planta[x][y - 1] !== 22){
+        planta[x][y] = 11;
+        y = y - 1
+        planta[x][y] = 33;
+        passos++;
+    }
 }
 
 const direita = (): void => {
+    if (y+1 < planta[0].length && planta[x][y + 1] !== 22){
     planta[x][y] = 11;
     y = y + 1
     planta[x][y] = 33;
     passos++;
+    }
 }
 
 while (true){
