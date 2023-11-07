@@ -39,6 +39,7 @@ const colorir = (text: number): string => {
 
 var x: number = 0;
 var y: number = 5;
+var passos: number = 0;
 
 const mostrarPlanta = (): void => {
     console.clear();
@@ -49,12 +50,14 @@ const mostrarPlanta = (): void => {
         }
         console.log(linha.toString().replaceAll(",", ""))
     }
+    console.log("Passos:", passos);
 }
 
 const descer = (): void => {
     planta[x][y] = 11;
     x = x + 1
     planta[x][y] = 33;
+    passos++;
 }
 
 
@@ -62,6 +65,7 @@ const subir = (): void => {
     planta[x][y] = 11;
     x = x - 1
     planta[x][y] = 33;
+    passos++;
 }
 
 
@@ -69,12 +73,14 @@ const esquerda = (): void => {
     planta[x][y] = 11;
     y = y - 1
     planta[x][y] = 33;
+    passos++;
 }
 
 const direita = (): void => {
     planta[x][y] = 11;
     y = y + 1
     planta[x][y] = 33;
+    passos++;
 }
 
 while (true){
