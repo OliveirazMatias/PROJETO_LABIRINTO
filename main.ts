@@ -9,7 +9,7 @@ const planta: number[][] = [
     [22, 11, 11, 22, 22, 11, 11, 22, 22, 88, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22],
     [22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 88, 11, 22],
     [22, 11, 11, 22, 22, 88, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22],
-    [22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22],
+    [22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 11],
     [22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22],
     [22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22],
     [22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22, 22, 11, 11, 22],
@@ -62,7 +62,7 @@ const mostrarPlanta = (planta_atual: number[][]): void => {
     console.log('Passos: ', passos);
 }
 
-const descer = (): void => {
+const descer = (planta: number[][]): void => {
     if (x + 1 < planta.length && planta[x + 1][y] !== 22) {
         planta[x][y] = 11;
         x = x + 1;
@@ -71,7 +71,7 @@ const descer = (): void => {
     }
 }
 
-const subir = (): void => {
+const subir = (planta: number[][]): void => {
     if (x - 1 >= 0 && planta[x - 1][y] !== 22) {
         planta[x][y] = 11;
         x = x - 1;
@@ -80,7 +80,7 @@ const subir = (): void => {
     }
 }
 
-const esquerda = (): void => {
+const esquerda = (planta: number[][]): void => {
     if (y - 1 >= 0 && planta[x][y - 1] !== 22) {
         planta[x][y] = 11;
         y = y - 1;
@@ -89,7 +89,7 @@ const esquerda = (): void => {
     }
 }
 
-const direita = (): void => {
+const direita = (planta: number[][]): void => {
     if (y + 1 < planta[0].length && planta[x][y + 1] !== 22) {
         planta[x][y] = 11;
         y = y + 1;
@@ -115,14 +115,18 @@ const start = (planta_atual: number[][]) => {
     if (escolha.toUpperCase() == 'Q' || verificaProduto()) {
         return
     } else if (escolha.toUpperCase() == 'W') {
-        subir();
+        subir(planta_atual);
     } else if (escolha.toUpperCase() == 'A') {
-        esquerda();
+        esquerda(planta_atual);
     } else if (escolha.toUpperCase() == 'S') {
-        descer();
+        descer(planta_atual);
     } else if (escolha.toUpperCase() == 'D') {
-        direita();
+        direita(planta_atual);
+    } if (x == 7 && y == 19) {
+        planta_atual = planta1;
+        x = 0;
+        y = 5;
     }
     start(planta_atual);
 }
-start(planta1); 
+start(planta); 
