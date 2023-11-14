@@ -21,6 +21,18 @@ const planta: number[][] = [
     [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
     [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22]
 ]
+const planta1: number[][] = [
+    [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22],
+    [22, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 22],
+    [22, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 22],
+    [22, 11, 88, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 88, 11, 22],
+    [22, 11, 11, 11, 11, 11, 11, 11, 11, 88, 11, 11, 11, 11, 11, 11, 11, 11, 11, 22],
+    [22, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 88, 11, 22],
+    [22, 11, 11, 11, 11, 88, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 22],
+    [22, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 22],
+    [22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22, 22]
+
+]
 
 const colorir = (text: number): string => {
     if (text == 22) {
@@ -38,9 +50,9 @@ var x: number = 0;
 var y: number = 5;
 var passos: number = 0;
 
-const mostrarPlanta = (): void => {
+const mostrarPlanta = (planta_atual: number[][]): void => {
     console.clear();
-    for (let i of planta) {
+    for (let i of planta_atual) {
         let linha: any[] = [];
         for (let e of i) {
             linha.push(colorir(e))
@@ -97,11 +109,11 @@ const verificaProduto = (): boolean => {
     return true;
 }
 
-while (true) {
-    mostrarPlanta();
+const start = (planta_atual: number[][]) => {
+    mostrarPlanta(planta1);
     let escolha: string = input('Digite uma direção (w, a, s, d) ou (q) para sair: ');
     if (escolha.toUpperCase() == 'Q' || verificaProduto()) {
-        break
+        return
     } else if (escolha.toUpperCase() == 'W') {
         subir();
     } else if (escolha.toUpperCase() == 'A') {
@@ -111,4 +123,6 @@ while (true) {
     } else if (escolha.toUpperCase() == 'D') {
         direita();
     }
+    start(planta_atual);
 }
+start(planta1); 
